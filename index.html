@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111127">
+  <title>QUIZORA — Bilimlar bellashuvi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#">🎯 QUIZORA</a>
+    <div class="nav-right">
+      <span class="online">● Bilimlar maydoni</span>
+      <button id="nameBtn" class="small-btn">👤 Ismim</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">O‘YNA • O‘RGAN • G‘ALABA QOZON</span>
+        <h1>Bilimingni<br><span>namoyish et!</span></h1>
+        <p>Qiziqarli testlar, tezkor savollar va do‘stlaring bilan bilim bellashuvi!</p>
+        <a class="primary-btn" href="#subjects">🚀 Testni boshlash</a>
+      </div>
+      <div class="hero-art">
+        <div class="brain">🧠</div>
+        <span class="float-card fc1">⚡ Tezkor savollar</span>
+        <span class="float-card fc2">🏆 G‘alaba!</span>
+        <span class="float-card fc3">⭐ +100 ball</span>
+      </div>
+    </section>
+
+    <section class="join-panel">
+      <div>
+        <span class="eyebrow">👥 DO‘STLAR BILAN</span>
+        <h2>Birgalikda o‘yna!</h2>
+        <p>Ismingni yozib xona yarat yoki do‘sting yuborgan havola orqali kir.</p>
+      </div>
+      <div class="join-controls">
+        <input id="playerName" maxlength="20" placeholder="Ismingni yoz..." autocomplete="nickname">
+        <input id="roomCode" maxlength="8" placeholder="Xona kodi">
+        <button id="joinBtn" class="primary-btn">Xonaga kirish</button>
+        <button id="createBtn" class="secondary-btn">＋ Xona yaratish</button>
+      </div>
+      <p id="roomMessage" class="message"></p>
+      <div id="shareArea" class="share-area hidden">
+        <span id="shareLink"></span>
+        <button id="copyLinkBtn" class="small-btn">🔗 Havolani nusxalash</button>
+      </div>
+    </section>
+
+    <section id="subjects" class="section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">📚 BILIM MAYDONI</span>
+          <h2>Qaysi fanni tanlaysan?</h2>
+          <p>3-sinfdan 7-sinfgacha. Har bir testda 15 ta savol.</p>
+        </div>
+        <span class="level-tag">Oson → Qiyin</span>
+      </div>
+
+      <div class="subject-grid">
+        <button class="subject-card english" data-subject="english">
+          <span class="subject-emoji">🇬🇧</span>
+          <strong>Ingliz tili</strong>
+          <span>Grammatika va lug‘at</span>
+          <b class="card-bottom">15 ta savol　 →</b>
+        </button>
+        <button class="subject-card russian" data-subject="russian">
+          <span class="subject-emoji">🇷🇺</span>
+          <strong>Rus tili</strong>
+          <span>So‘zlar va til qoidalari</span>
+          <b class="card-bottom">15 ta savol　 →</b>
+        </button>
+        <button class="subject-card math" data-subject="math">
+          <span class="subject-emoji">🧮</span>
+          <strong>Matematika</strong>
+          <span>Hisoblash va tenglamalar</span>
+          <b class="card-bottom">15 ta savol　 →</b>
+        </button>
+      </div>
+      <p class="note">Savollar shu brauzerda imkon qadar takrorlanmaydi. Yangi savollar qolsa, sayt xabar beradi.</p>
+    </section>
+
+    <section id="quizScreen" class="quiz-screen hidden">
+      <div class="quiz-top">
+        <button id="exitBtn" class="small-btn">✕ Chiqish</button>
+        <strong id="quizSubject">QUIZORA</strong>
+        <button id="fullscreenBtn" class="small-btn">⛶ To‘liq ekran</button>
+      </div>
+
+      <div class="quiz-meta">
+        <span id="questionCount">Savol 1 / 15</span>
+        <span id="scoreText">⭐ 0 ball</span>
+        <span id="timerText">⏱️ 10</span>
+      </div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+
+      <div id="questionPanel" class="question-panel">
+        <span id="gradeLabel" class="grade-label">3-sinf</span>
+        <h2 id="questionText">Savol</h2>
+        <div id="answers" class="answers"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+      </div>
+      <div class="quiz-bottom">
+        <span>⚡ Tez javob ber!</span>
+        <span>QUIZORA • Bilim — kuch!</span>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="result-screen hidden">
+      <div class="result-icon">🏆</div>
+      <span class="eyebrow">TEST YAKUNLANDI</span>
+      <h2 id="resultTitle">Ajoyib!</h2>
+      <p id="resultSummary"></p>
+      <div class="result-stats">
+        <div><strong id="finalScore">0</strong><span>Ball</span></div>
+        <div><strong id="correctCount">0/15</strong><span>To‘g‘ri javob</span></div>
+        <div><strong id="accuracy">0%</strong><span>Natija</span></div>
+      </div>
+      <button id="againBtn" class="primary-btn">🔄 Yana o‘ynash</button>
+      <button id="homeBtn" class="secondary-btn">🏠 Bosh sahifa</button>
+    </section>
+  </main>
+
+  <footer>
+    🎯 QUIZORA
+    <span>Bilimingni sinab ko‘r — yangi marralarni zabt et!</span>
+  </footer>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
